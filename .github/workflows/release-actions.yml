@@ -22,7 +22,7 @@ jobs:
       - name: Create Release
         id: create_release
         # Uses sha for added security since tags can be updated
-        uses: actions/create-release@8f324cdc2e5470815db0a286b4b3aa7803c0e6ef
+        uses: actions/create-release@4c11c9fe1dcd9636620a16455165783b20fc7ea0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
