@@ -24,7 +24,7 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
       - name: Push to GitHub Packages
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           registry: docker.pkg.github.com
           name: project-openubl/ublhub-ui/ublhub-ui
@@ -34,7 +34,7 @@ jobs:
           snapshot: false
           tags: ${{ steps.extract_branch.outputs.branch }}
       - name: Push to Docker Hub
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: projectopenubl/ublhub-ui
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -43,7 +43,7 @@ jobs:
           snapshot: false
           tags: ${{ steps.extract_branch.outputs.branch }}
       - name: Push to Quay.io
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           registry: quay.io
           name: projectopenubl/ublhub-ui
